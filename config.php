@@ -20,10 +20,18 @@ define('MAIN_TIME', 0);
 /********* Database ***********************************************************/
 
 define('DATABASE_TYPE', 'pdo_mysql');
-define('DATABASE_HOST', 'mysql1.php.xdomain.ne.jp');
 define('DATABASE_PORT', '');
-define('DATABASE_USERNAME', 'hoge0609_user');
-define('DATABASE_PASSWORD', 'password2021');
+if ($_SERVER['SERVER_NAME'] == 'localhost') {
+    // ローカル環境
+    define('DATABASE_HOST', 'localhost');
+    define('DATABASE_USERNAME', 'root');
+    define('DATABASE_PASSWORD', '');
+} else {
+    // 本番環境
+    define('DATABASE_HOST', 'mysql1.php.xdomain.ne.jp');
+    define('DATABASE_USERNAME', 'hoge0609_user');
+    define('DATABASE_PASSWORD', 'password2021');
+}
 define('DATABASE_NAME', 'hoge0609_demo001');
 define('DATABASE_PREFIX', '');
 define('DATABASE_CHARSET', 'UTF8');
